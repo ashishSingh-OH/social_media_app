@@ -62,7 +62,8 @@ const FeedLayout = () => {
                             friends.map((friend)=>{
                                 return (
                                     <Badge.Ribbon text="Active" color="green">
-                                        <div key={friend.id} className="friend-list-item">{friend.name}  
+                                        <div key={friend.id} className="friend-list-item">
+                                            {friend.name}  
                                         </div>
                                     </Badge.Ribbon>
                                 )
