@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import { Form, Input, Button, Checkbox } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = (props) => {
     
+    const navigate = useNavigate();
     
     const onFinish = (values: any) => {
     console.log('Success:', values);
@@ -16,6 +18,10 @@ const LoginPage = (props) => {
     const handleSignupWish = () => {
         props.setWannaSignUp(true);
         props.setWannaLogin(false);
+    }
+
+    const handleSuccessfulLogin = ()=>{
+        navigate('/feed');
     }
 
   return (
@@ -53,14 +59,14 @@ const LoginPage = (props) => {
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" onClick={handleSuccessfulLogin}>
                         Login
                         </Button>
                     </Form.Item>
                 </Form>
             </div>
             <div className='login-newuser?'> <p>Here for the first time?</p>
-                 <Button  onClick={handleSignupWish} type="primary">Register</Button>
+                 <Button onClick={handleSignupWish} type="primary">Register</Button>
             </div>
         </div>
     </>

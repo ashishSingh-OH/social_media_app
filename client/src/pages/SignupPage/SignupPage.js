@@ -1,10 +1,13 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox, Select } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 
 const SignupPage = (props) => {
     
+    const navigate = useNavigate();
+
     const onFinish = (values: any) => {
     console.log('Success:', values);
     };
@@ -25,6 +28,10 @@ const SignupPage = (props) => {
           </Select>
         </Form.Item>
       );
+
+    const handleSuccessfulRegisteration = ()=>{
+        navigate('/feed');
+    }
 
   return (
     <>
@@ -71,7 +78,7 @@ const SignupPage = (props) => {
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" onClick={handleSuccessfulRegisteration}>
                         Join
                         </Button>
                     </Form.Item>
