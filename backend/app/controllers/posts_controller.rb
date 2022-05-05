@@ -22,14 +22,13 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
+    puts(@post.errors.full_messages)
 
-    respond_to do |format|
       if @post.save
-        format.json { render :show, status: :created, location: @post }
+        render json: @post,status: :created, location: @post
       else
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        render json: @post.errors, status: :unprocessable_entity 
       end
-    end
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json
@@ -60,6 +59,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:tittle, :caption,:featured_image,:user_id)
+      params.permit(:tittle,:caption,:featured_image,:user_id)
     end
 end
