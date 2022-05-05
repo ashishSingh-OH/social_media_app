@@ -1,0 +1,47 @@
+.profile-conatiner{
+    height: 100vh;
+    position: absolute;
+}
+
+.profile-card-container{
+    /* position: relative; */
+    top: 3rem;
+}
+
+.profile-card{
+    /* position: relative; */
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 60% !important;
+}
+.pc-button-container{
+    /* float:right; */
+    margin-top: 3rem;
+    right: 15px !important;
+    width: 30%;
+}
+.profile-card-button{
+    margin: 3px;
+}
+.profile-pic{
+    float: left;
+}
+.profile-details{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pro-detail-item{
+    margin: auto;
+    font-size: 1.2rem
+}
+.profile-post-container{
+    /* position: absolute; */
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+    justify-content: center;
+}

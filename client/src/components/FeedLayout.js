@@ -3,12 +3,16 @@ import { Layout, Badge, Card } from 'antd';
 import './FeedLayout.css';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import FeedContent from './FeedContent';
+import ChatDrawer from './ChatDrawer';
 
 const { Sider, Content } = Layout;
 
 const FeedLayout = () => {
 
     const [collapsed, setCollapsed] = useState(false);
+    const [friendId, setFriendId] = useState(0);
+    const [visible, setVisible] = useState(false);
+    const [currentId, setCurrentId] = useState(0);
 
     const friends = [
         {
@@ -41,6 +45,11 @@ const FeedLayout = () => {
         setCollapsed(!collapsed);
     }
 
+    const showChatDrawer = (event) => {
+        setCurrentId(event.currentTarget.dataset.id);
+        setVisible(true);
+    };
+
   return (
     <>
         <Layout className='feed-layout'>
@@ -62,9 +71,10 @@ const FeedLayout = () => {
                             friends.map((friend)=>{
                                 return (
                                     <Badge.Ribbon text="Active" color="green">
-                                        <div key={friend.id} className="friend-list-item">
-                                            {friend.name}  
-                                        </div>
+                                        <button key={friend.id} className="friend-list-item" onClick={showChatDrawer} friendId={friend.id}>
+                                            {friend.name}
+                                            {/* {setFriendId(friend.id)}  */}
+                                        </button>
                                     </Badge.Ribbon>
                                 )
                             })
@@ -73,6 +83,9 @@ const FeedLayout = () => {
                 </div>
             }
             </Sider>
+
+            <ChatDrawer  friendId={currentId}  visible={visible} setVisible={setVisible} />
+
             <Layout className="site-layout">
             
             <Content

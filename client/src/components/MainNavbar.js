@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar, Nav, Container, Form, Button, FormControl} from 'react-bootstrap';
 import { SearchOutlined  } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const MainNavbar = () => {
 
@@ -33,7 +33,7 @@ const MainNavbar = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-            <Nav.Link href="#action1" className='mx-5'>Profile</Nav.Link>
+            <Nav.Link className='mx-5'><Link to="/profile">Profile</Link></Nav.Link>
             <Nav.Link className='mx-5'
               style={{backgroundColor: '#ffa500', color: '#fff', borderRadius: '6px' }}
               onClick={handleLogout }

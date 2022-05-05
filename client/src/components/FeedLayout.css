@@ -29,6 +29,7 @@
     font-weight: 100;
     border: 1.8px solid red;
     margin: 1rem;
+    width: 90%;
 }
 .friend-list-item:hover{
     background-color: #fff;
